@@ -13,9 +13,6 @@ export default async function handler(
 
     const { name, email, password } = req.body;
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-
     try {
       let user = await User.findOne({ email });
 
@@ -23,18 +20,22 @@ export default async function handler(
         return res.status(400).json({ message: "Email already exists" });
       }
 
-      const user = new User({
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+
+      user = new User({
         name,
         email,
         password: hashedPassword,
       });
 
       await user.save();
+
       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET!, {
         expiresIn: "7d",
       });
 
-      res.status(201).json({ token, message: "User created successfully" });
+      res.status(201).json({ token });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal server error" });
