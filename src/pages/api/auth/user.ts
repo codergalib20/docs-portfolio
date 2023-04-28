@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import cookie from "cookie-parser";
-// import User from "";
+import User from "./User.model";
 
 import { check, validationResult } from "express-validator";
 const jwtSecret = "your-jwt-secret-key";
