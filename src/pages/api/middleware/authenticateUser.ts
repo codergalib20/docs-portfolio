@@ -14,6 +14,30 @@ interface DecodedToken {
  * If the user is not authenticated, a 401 Unauthorized response is sent.
  */
 
-export async function authenticateUser(req: NextApiRequest, res: NextApiResponse, next: () => void) {
-    
+export async function authenticateUser(
+  req: NextApiRequest,
+  res: NextApiResponse,
+  next: () => void
+) {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).send("Unauthorizaed");
+  }
+
+  const token = authHeader.substring("Bearer ".length);
+
+  try {
+    const decodedToken = jwt.verify(
+      token,
+      process.env.JWT_SECRET!
+    ) as DecodedToken;
+
+
+    const user = await User.findById(decodedToken.userId);
+
+    if(!user) {
+        return res.status(401).send('Unauthorized');
+    }
+  } catch (err) {}
 }
