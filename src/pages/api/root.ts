@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mongoose from "mongoose";
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority`;
+//  `mongodb+srv://DOCUMENT_PORTFOLIO:w0JzhpLVtT2Z74QF@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority`;
+const uri = `mongodb+srv:DOCUMENT_PORTFOLIO:w0JzhpLVtT2Z74QF@cluster0.wug6c.mongodb.net/DOCUMENT_PORTFOLIO`
 mongoose.connect(uri);
-
 interface UserDocument extends mongoose.Document {
   name: string;
   email: string;
@@ -22,6 +22,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<UserDocument[]>
 ) {
-  const users = await User.find();
-  res.status(200).json(users);
+  try{console.log('error')}
+  catch(err){console.log(err)}
 }
+
+
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'))
+
