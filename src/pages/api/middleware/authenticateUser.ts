@@ -33,11 +33,17 @@ export async function authenticateUser(
       process.env.JWT_SECRET!
     ) as DecodedToken;
 
-
     const user = await User.findById(decodedToken.userId);
 
-    if(!user) {
-        return res.status(401).send('Unauthorized');
+    if (!user) {
+      return res.status(401).send("Unauthorized");
     }
-  } catch (err) {}
+
+    req.user = user;
+
+    next();
+  } catch (err) {
+    console.error(err);
+    res.status(401).send("Unauthorized");
+  }
 }
