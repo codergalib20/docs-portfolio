@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
 import dbConnect from "../db";
 import User from "../../../models/User";
+import jwt from 'jsonwebtoken';
+
 
 export default async function handler(
   req: NextApiRequest,
@@ -23,7 +25,11 @@ export default async function handler(
       });
 
       await user.save();
+      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+        expiresIn: '7d'
+      });
 
+      res.status(201).json({ token });
       res.status(201).json({ message: "User created successfully" });
     } catch (error) {
       console.error(error);
