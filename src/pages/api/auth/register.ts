@@ -14,6 +14,9 @@ export default async function handler(
     const { name, email, password } = req.body;
 
     try {
+      if (!name || !email || !password) {
+        return res.status(401).send("All fields are required");
+      }
       let user = await User.findOne({ email });
 
       if (user) {

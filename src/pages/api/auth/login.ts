@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../../../models/User";
+import dbConnect from '../db';
 
 interface LoginRequestBody {
   email: string;
@@ -21,6 +22,7 @@ export default async function handler(
     return;
   }
 
+  await dbConnect();
   const { email, password } = req.body as LoginRequestBody;
 
   try {
