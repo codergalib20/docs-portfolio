@@ -2,8 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
 import dbConnect from "../db";
 import User from "../../../models/User";
-import jwt from 'jsonwebtoken';
-
+import jwt from "jsonwebtoken";
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,6 +17,12 @@ export default async function handler(
     const hashedPassword = await bcrypt.hash(password, salt);
 
     try {
+      let user = await User.findOne({ email });
+
+      if (user) {
+        return res.status(400).json({ message: "Email already exists" });
+      }
+
       const user = new User({
         name,
         email,
@@ -25,12 +30,11 @@ export default async function handler(
       });
 
       await user.save();
-      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-        expiresIn: '7d'
+      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET!, {
+        expiresIn: "7d",
       });
 
-      res.status(201).json({ token });
-      res.status(201).json({ message: "User created successfully" });
+      res.status(201).json({ token, message: "User created successfully" });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Internal server error" });
