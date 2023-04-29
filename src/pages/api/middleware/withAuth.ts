@@ -1,10 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import jwt from "jsonwebtoken";
+import { getUserById } from "@/utils/database";
+// import { getUserById } from "@/"; // Import a function to retrieve the user data from a database
 
 interface User {
   id: string;
   name: string;
   email: string;
+  // Add any other properties that you want to include in the user object
 }
 
 declare global {
@@ -29,11 +32,11 @@ export const withAuth =
     }
 
     try {
-      const decoded = jwt.verify(
-        token,
-        process.env.JWT_SECRET as string
-      ) as User;
-      req.user = decoded;
+      const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as {
+        id: string;
+      };
+      const user = await getUserById(decoded.id); // Load the complete user data from a database
+      req.user = user as User;
       await handler(req, res);
     } catch (err) {
       res.status(401).json({ message: "Invalid token" });
