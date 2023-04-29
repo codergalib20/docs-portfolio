@@ -35,8 +35,8 @@ export const withAuth =
       const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as {
         id: string;
       };
-    //   const user = await getUserById(decoded.id); // Load the complete user data from a database
-      req.user = decoded as User;
+      const user = await getUserById(decoded.id); // Load the complete user data from a database
+      req.user = user as User;
       await handler(req, res);
     } catch (err) {
       res.status(401).json({ message: "Invalid token" });
