@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
     return (
         <>
             <Container>
-                <div className="grid grid-cols-2">
+                <div className="max-w-6xl mx-auto grid grid-cols-2">
                     <div>
                         <h2>{name}</h2>
                         <h4>{profession}</h4>
