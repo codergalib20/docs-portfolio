@@ -45,7 +45,7 @@ export const stack: StackType[] = [
     name: "Typescript",
   },
   {
-    status: ["working", "exploring"],
+    status: ["exploring"],
     name: "Python",
   },
   {
