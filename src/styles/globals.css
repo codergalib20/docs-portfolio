@@ -16,7 +16,6 @@
 html {
   background: linear-gradient(0deg, #c5f7eb, #ffffed);
   height: 100vh;
-  overflow: hidden;
   font-family: 'Quicksand', sans-serif;
 }
 body {
