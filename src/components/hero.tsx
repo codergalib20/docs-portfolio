@@ -15,8 +15,8 @@ const Hero: React.FC = () => {
                         <h4 className="text-xl font-bold inline-block border-b-2 border-black pb-1 pt-2 rounded-r-xl">{profession}</h4>
                         <p className="text-base text-gray-700 pt-3 text-justify">{describe}</p>
                     </div>
-                    <div className="relative">
-                        <div className="w-[200px] h-[200px]">
+                    <div className="flex items-center justify-center">
+                        <div className="w-[300px] border-4 border-[#fa6280] h-[300px] relative">
                             <Image src="/images/galib.png" fill alt="Asadullah Hil Galib, codergalib, codergalib20" />
                         </div>
                     </div>
