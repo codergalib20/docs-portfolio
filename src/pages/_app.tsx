@@ -20,7 +20,11 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [])
 
-  return <>
-    <Component {...pageProps} />
-  </>
+  return (
+    <div className='app-bg h-screen'>
+      <div className='h-full overflow-y-scroll'>
+        <Component {...pageProps} />
+      </div>
+    </div>
+  )
 }
