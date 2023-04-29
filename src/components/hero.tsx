@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
     return (
         <>
             <Container>
-                <div className="max-w-4xl mx-auto grid grid-cols-2 pb-8 pt-16">
+                <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 pb-8 pt-16">
                     <div>
                         <h2 className="text-4xl font-bold inline-block border-t-4 border-black rounded-r-xl">{name}</h2>
                         <h4 className="text-xl font-bold inline-block border-b-2 border-black pb-1 pt-2 rounded-r-xl">{profession}</h4>
