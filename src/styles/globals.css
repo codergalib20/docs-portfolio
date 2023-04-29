@@ -25,3 +25,42 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0.2em;
+  border-radius: 50%;
+  animation: bounce 0.5s infinite alternate;
+}
+
+.dot1 {
+  background-color: #48bb78;
+  animation-delay: -0.4s;
+}
+
+.dot2 {
+  background-color: #81e6d9;
+  animation-delay: -0.2s;
+}
+
+.dot3 {
+  background-color: #f6e05e;
+  animation-delay: 0;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1em);
+  }
+}

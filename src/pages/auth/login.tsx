@@ -1,12 +1,27 @@
 import { useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router'
 
 const LoginPage = () => {
     const [email, setemail] = useState('');
     const [password, setPassword] = useState('');
+    const router = useRouter();
 
-    const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // handle login logic
+
+        const user = { email, password };
+
+        try {
+            const response = await axios.post('/api/auth/login', user);
+            const token = response.data.token;
+            sessionStorage.setItem("token", token);
+            router.push('/');
+        }
+        catch (err) {
+            console.error('something wrong', err);
+        }
     };
 
     return (

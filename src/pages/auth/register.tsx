@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const RegisterPage = () => {
     const [FullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const router = useRouter();
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // handle register logic
@@ -15,6 +16,7 @@ const RegisterPage = () => {
             const response = await axios.post('/api/auth/register', newUser);
             const token = response.data.token;
             sessionStorage.setItem("token", token);
+            router.push('/');
         }
         catch (err) {
             console.error('something wrong', err);
