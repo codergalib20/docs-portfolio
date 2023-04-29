@@ -1,9 +1,10 @@
 import Container from "./container"
+import Image from 'next/image';
 
 const Hero: React.FC = () => {
-    const name: string = 'Hi! I\'m Asadullah Hil Galib';
+    const name: string = 'Hi! 👋 I\'m Asadullah Hil Galib';
     const profession: string = 'I\'m a Sofware Engineer';
-    const describe : string = 'I\'m an enthusiastic and detail-oriented Software Engineer to uses my skills in coding, troubleshooting complex designs/Actions/solutions, and assisting in the timely completion of projects. I love focusing on smart concepts with creative, standards-based, accessible Software Development. Also, I\'m always looking for new challenges & new people to meet.'
+    const describe: string = 'I\'m an enthusiastic and detail-oriented Software Engineer to uses my skills in coding, troubleshooting complex designs/Actions/solutions, and assisting in the timely completion of projects. I love focusing on smart concepts with creative, standards-based, accessible Software Development. Also, I\'m always looking for new challenges & new people to meet.'
 
     return (
         <>
@@ -14,7 +15,11 @@ const Hero: React.FC = () => {
                         <h4 className="text-xl font-bold inline-block border-b-2 border-black pb-1 pt-2 rounded-r-xl">{profession}</h4>
                         <p className="text-base text-gray-700 pt-3 text-justify">{describe}</p>
                     </div>
-                    <div></div>
+                    <div className="relative">
+                        <div className="w-[200px] h-[200px]">
+                            <Image src="/images/galib.png" fill alt="Asadullah Hil Galib, codergalib, codergalib20" />
+                        </div>
+                    </div>
                 </div>
             </Container>
         </>
