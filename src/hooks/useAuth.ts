@@ -15,7 +15,7 @@ export const useAuth = () => {
 
     const fetchUser = async () => {
       try {
-        const response = await axios.get("/api/users/me", {
+        const response = await axios.get("/api/users/validate", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(response.data);
