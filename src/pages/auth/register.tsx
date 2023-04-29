@@ -8,22 +8,29 @@ const RegisterPage = () => {
     const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // handle register logic
+        const neUser = { name: FullName, email, password };
+
+        try { }
+        catch (err) {
+            console.error('something wrong', err);
+        }
+
     };
 
     return (
         <div className="flex items-center justify-center h-screen">
             <div className="w-full max-w-md">
                 <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleRegister}>
-                    <h2 className="text-2xl text-center font-bold mb-6">Register</h2>
+                    <h2 className="text-2xl text-center font-bold mb-6 text-red-400">Register</h2>
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold mb-2" htmlFor="FullName">
-                            FullName
+                            Full Name
                         </label>
                         <input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="FullName"
                             type="text"
-                            placeholder="FullName"
+                            placeholder="Full Name"
                             value={FullName}
                             onChange={(e) => setFullName(e.target.value)}
                             required
