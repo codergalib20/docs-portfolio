@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
-import User from "@/models/User";
+import User, { IUser } from "@/models/User";
 
 interface DecodedToken {
   userId: string;
@@ -13,9 +13,12 @@ interface DecodedToken {
  * If the user is authenticated, the authenticated user object is attached to the request object (req.user).
  * If the user is not authenticated, a 401 Unauthorized response is sent.
  */
+interface AuthRequest extends NextApiRequest {
+  user?: IUser;
+}
 
 export async function authenticateUser(
-  req: NextApiRequest,
+  req: AuthRequest,
   res: NextApiResponse,
   next: () => void
 ) {
