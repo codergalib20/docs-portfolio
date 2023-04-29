@@ -28,6 +28,8 @@ export default async function userHandler(
       return res.status(400).json({ message: "Invalid user ID" });
     }
 
+    console.log(id);
+
     const user = await User.findOne({ _id: id }).exec();
 
     if (!user) {

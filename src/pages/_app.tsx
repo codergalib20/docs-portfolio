@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 
 
 export default function App({ Component, pageProps }: AppProps) {
+  // console.log(sessionStorage.getItem('token')!)
   // const [user, setUser] = useState(null);
   const { user } = useAuth();
   console.log(user);
