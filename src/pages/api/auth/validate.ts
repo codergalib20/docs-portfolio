@@ -10,6 +10,7 @@ interface User {
 
 const profileHandler = async (req: NextApiRequest & { user?: User }, res: NextApiResponse) => {
   // Access complete user object from `req` if authenticated
+  console.log(req.user);
   if (req.user) {
     return res.status(200).json(req.user);
   }
