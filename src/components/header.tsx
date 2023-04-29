@@ -3,7 +3,7 @@ import Container from "./container";
 const Header: React.FC = () => {
     return (
         <div
-            className="bg-white shadow-md py-2"
+            className="bg-white shadow-md py-2 fixed w-full"
             style={{ boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" }}
         >
             <Container>
