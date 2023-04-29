@@ -1,3 +1,4 @@
+import User from "@/models/User";
 import { NextApiRequest, NextApiResponse } from "next";
 
 interface User {
@@ -21,12 +22,13 @@ export default async function userHandler(
   }
 
   const { id } = req.query;
+  console.log(id);
 
   if (typeof id !== "string") {
     return res.status(400).json({ message: "Invalid user ID" });
   }
 
-  const user = await getUserById(id);
+  const user = await User.findById(id);
 
   if (!user) {
     return res.status(404).json({ message: `User with ID ${id} not found` });
