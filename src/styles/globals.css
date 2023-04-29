@@ -1,66 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+*,
+*::after,
+*::before {
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  background: linear-gradient(0deg, #c5f7eb, #ffffed);
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
 }
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Quicksand', sans-serif;
 }
-
-
-.spinner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.dot {
-  width: 1.5em;
-  height: 1.5em;
-  margin: 0.2em;
-  border-radius: 50%;
-  animation: bounce 0.5s infinite alternate;
-}
-
-.dot1 {
-  background-color: #48bb78;
-  animation-delay: -0.4s;
-}
-
-.dot2 {
-  background-color: #81e6d9;
-  animation-delay: -0.2s;
-}
-
-.dot3 {
-  background-color: #f6e05e;
-  animation-delay: 0;
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-1em);
-  }
+code{
+  font-family: 'Quicksand', sans-serif;
 }
