@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 
 const RegisterPage = () => {
@@ -5,12 +6,16 @@ const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // handle register logic
-        const neUser = { name: FullName, email, password };
+        const newUser = { name: FullName, email, password };
 
-        try { }
+        try {
+            const response = await axios.post('/api/auth/register', newUser);
+            const token = response.data.token;
+            sessionStorage.setItem("token", token);
+        }
         catch (err) {
             console.error('something wrong', err);
         }
