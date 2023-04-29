@@ -15,8 +15,8 @@ const Stack = () => {
                         })}
                     </div>
                 </div>
-                <div className={`col-span-4 border-[1px] p-4 border-[#778899] bg-[#ececec] relative top-10 -left-12`}>
-                    <div className='absolute left-0 bottom-32 w-full h-full'>
+                <div className={`col-span-4 border-[1px] p-4 z-10 border-[#778899] bg-[#ececec] relative top-10 -left-12`}>
+                    <div className='absolute left-0 bottom-40 -z-10 w-full h-full'>
                         <Image fill src="/shape/earth.png" alt='stack image' />
                     </div>
                     <h3 className='text-2xl font-bold pb-3 text-[#000000]'>Exploring</h3>                    <div className='border border-[#778899] bg-[#ffffff] p-4 rounded'>
