@@ -21,18 +21,23 @@ export default async function userHandler(
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { id } = req.query;
-  console.log(id);
+  try {
+    const { id } = req.query;
 
-  if (typeof id !== "string") {
-    return res.status(400).json({ message: "Invalid user ID" });
+    if (typeof id !== "string") {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
+
+    const user = await User.findOne({ _id: id }).exec();
+
+    if (!user) {
+      return res.status(404).json({ message: `User with ID ${id} not found` });
+    }
+
+    const { name, email, _id } = user || {};
+
+    return res.status(200).json({ name, email, _id });
+  } catch (err) {
+    res.status(200).send("Server error");
   }
-
-  const user = await User.findById(id);
-
-  if (!user) {
-    return res.status(404).json({ message: `User with ID ${id} not found` });
-  }
-
-  return res.status(200).json(user);
 }
