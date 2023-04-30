@@ -1,9 +1,10 @@
 import menus from "@/fakeData/menus";
+import slug from "@/utils/slug";
 import Link from 'next/link';
 import { useState } from "react";
 import { AiFillCaretRight, AiFillCaretDown } from 'react-icons/ai';
 import { BiLinkAlt } from 'react-icons/bi';
-
+import { BsFillFolderSymlinkFill } from 'react-icons/bs';
 
 export default function Dashboard() {
     const [subMenuOpen, setSubMenuOpen] = useState(false);
@@ -41,8 +42,12 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
 
     return (
         <div>
-            <div onClick={handleClick} className="flex gap-2 items-center">
-                {item.children ? item.name : <Link legacyBehavior href={`/dashboard?${item.name}`}><a className="flex gap-3 items-center"><BiLinkAlt /> {item.name}</a></Link>}
+            <div onClick={handleClick} className="flex gap-2 items-center text-black  cursor-pointer">
+                {item.children ?
+                    <button className="flex items-center gap-3"> <BsFillFolderSymlinkFill /> item.name </button> :
+                    <Link legacyBehavior href={`/dashboard?${slug(item.name)}`}><a className="flex gap-3 items-center">
+                        <BiLinkAlt /> {item.name}</a>
+                    </Link>}
                 {item.children && (
                     subMenuOpen ? <AiFillCaretDown /> : <AiFillCaretRight />
                 )}
@@ -51,7 +56,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
                 {subMenuOpen && item.children && (
                     <ul>
                         {item.children.map((child) => (
-                            <li key={child.id}>
+                            <li key={child.id} className="cursor-pointer mt-2">
                                 <MenuItem item={child} />
                             </li>
                         ))}
@@ -77,6 +82,8 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({ items }) => {
         </ul>
     );
 };
+
+
 
 const menuItems: Array<MenuItemProps['item']> = [
     {
