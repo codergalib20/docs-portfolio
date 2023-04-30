@@ -88,72 +88,78 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({ items }) => {
 const menuItems: Array<MenuItemProps['item']> = [
     {
         id: 1,
-        name: 'Item 1',
+        name: 'Documentation',
         children: [
             {
-                id: 2,
-                name: 'Subitem 1',
+                id: 1,
+                name: 'New Doc',
                 children: [
                     {
-                        id: 3,
-                        name: 'Sub-subitem 1',
+                        id: 1,
+                        name: 'Publishd',
                     },
+                    {
+                        id: 2,
+                        name: 'Private'
+                    }
                 ],
             },
             {
-                id: 4,
-                name: 'Subitem 2',
+                id: 2,
+                name: 'Doc Manage',
+                children: [
+                    {
+                        id: 1,
+                        name: 'Edit',
+                    },
+                    {
+                        id: 2,
+                        name: 'Delete'
+                    },
+                    {
+                        id: 3,
+                        name: 'SEO'
+                    }
+                ]
             },
         ],
     },
     {
-        id: 5,
-        name: 'Item 2',
+        id: 1,
+        name: 'Blogs',
         children: [
             {
                 id: 1,
-                name: 'Sub Item 1',
-            },
-            {
-                id: 2,
-                name: 'Sub Item 2',
-            },
-            {
-                id: 3,
-                name: 'Sub Item 3',
+                name: 'New Blog',
                 children: [
                     {
                         id: 1,
-                        name: 'Sub Item 1',
+                        name: 'Publishd',
                     },
                     {
                         id: 2,
-                        name: 'Sub Item 2',
-                        children: [
-                            {
-                                id: 1,
-                                name: 'Sub Item 1',
-                            },
-                            {
-                                id: 2,
-                                name: 'Sub Item 2',
-                            },
-                            {
-                                id: 3,
-                                name: 'Sub Item 3',
-                            },
-                            {
-                                id: 4,
-                                name: 'Sub Item 4',
-                            },
-                            {
-                                id: 5,
-                                name: 'Sub Item 5',
-                            },
-                        ]
+                        name: 'Private'
+                    }
+                ],
+            },
+            {
+                id: 2,
+                name: 'Blogs',
+                children: [
+                    {
+                        id: 1,
+                        name: 'Edit',
                     },
+                    {
+                        id: 2,
+                        name: 'Delete'
+                    },
+                    {
+                        id: 3,
+                        name: 'SEO'
+                    }
                 ]
-            }
-        ]
+            },
+        ],
     },
 ];
