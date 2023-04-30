@@ -4,8 +4,8 @@ import { useState } from "react";
 
 
 export default function Dashboard() {
-    const [subMenus, setSubMenus] = useState([]);
-    
+
+
     return (
         <div>
             <div className="flex h-screen">
@@ -25,7 +25,8 @@ type ButtonTypes = {
 }
 
 const Button: React.FC<ButtonTypes> = ({ item }) => {
-    return <button className="">{item.name}</button>
+    const [subMenus, setSubMenus] = useState([]);
+    return <button className="block" onClick={() => setSubMenus(item?.sub)}>{item.name}</button>
 }
 
 type LinkTypes = {
