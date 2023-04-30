@@ -66,7 +66,8 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
                 )}
             </div>
             <div className="pl-4">
-                {subMenuOpen && item.children && (
+                {subMenuOpen && item.children && ( // If the sub-menu is open and the menu item has children,
+                    // *render the sub-menu with a list of child menu items
                     <ul>
                         {item.children.map((child) => (
                             <li key={child.id} className="cursor-pointer mt-2">
@@ -79,7 +80,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
         </div>
     );
 };
-
+/*
+Define interface for SidebarMenuProps that includes 
+an array of MenuItemProps objects
+*/
 interface SidebarMenuProps {
     items: Array<MenuItemProps['item']>;
 }
