@@ -42,7 +42,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
     return (
         <div>
             <div onClick={handleClick} className="flex gap-2 items-center">
-                -  {item.children ? item.name : <Link href={`/dashboard?${item.name}`}><a>{item.name}</a></Link>}
+                {item.children ? item.name : <Link legacyBehavior href={`/dashboard?${item.name}`}><a className="flex gap-3 items-center"><BiLinkAlt /> {item.name}</a></Link>}
                 {item.children && (
                     subMenuOpen ? <AiFillCaretDown /> : <AiFillCaretRight />
                 )}
