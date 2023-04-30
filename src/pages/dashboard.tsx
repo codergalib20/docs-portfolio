@@ -25,26 +25,39 @@ export default function Dashboard() {
     )
 }
 
+/*
+Define interface for MenuItemProps that includes 
+item object with id, name, and children propertie
+*/
 interface MenuItemProps {
     item: {
         id: number;
         name: string;
         children?: Array<MenuItemProps['item']>;
+        // Optional children array of MenuItemProps objects
     };
 }
 
+
+/* Define a functional component that takes MenuItemProps as a prop */
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
     const [subMenuOpen, setSubMenuOpen] = useState(false);
 
+    // Define a handleClick function that toggles the visibility of the sub-menu
     const handleClick = () => {
-        setSubMenuOpen(!subMenuOpen);
+        setSubMenuOpen(!subMenuOpen); // Toggle the subMenuOpen state
     };
 
     return (
         <div>
+            {/*
+               Render the clickable menu item with a button or link, 
+               depending on whether there are children
+            */}
             <div onClick={handleClick} className="flex gap-2 items-center text-black  cursor-pointer">
+                {/*If the menu item has children, render a button with a folder icon and the item name*/}
                 {item.children ?
-                    <button className="flex items-center gap-3"> <BsFillFolderSymlinkFill /> item.name </button> :
+                    <button className="flex items-center gap-3"> <BsFillFolderSymlinkFill /> {item.name}</button> :
                     <Link legacyBehavior href={`/dashboard?${slug(item.name)}`}><a className="flex gap-3 items-center">
                         <BiLinkAlt /> {item.name}</a>
                     </Link>}
@@ -162,4 +175,16 @@ const menuItems: Array<MenuItemProps['item']> = [
             },
         ],
     },
+    {
+        id: 3,
+        name: 'Subscribers',
+    },
+    {
+        id: 4,
+        name: 'Mail'
+    },
+    {
+        id: 5,
+        name: 'Conversation'
+    }
 ];
