@@ -84,7 +84,7 @@ const Signup: React.FC = () => {
                         </button>
                         <p className="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
                             Already have an account yet?
-                            <Link href="/signin" legacyBehavior><a
+                            <Link href="/login" legacyBehavior><a
                                 className="font-medium text-[#fa6985] hover:underline dark:text-primary-500">
                                 Sign In
                             </a></Link>
