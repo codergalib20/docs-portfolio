@@ -2,6 +2,7 @@ import menus from "@/fakeData/menus";
 import Link from 'next/link';
 import { useState } from "react";
 import { AiFillCaretRight, AiFillCaretDown } from 'react-icons/ai';
+import { BiLinkAlt } from 'react-icons/bi';
 
 
 export default function Dashboard() {
@@ -41,7 +42,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
     return (
         <div>
             <div onClick={handleClick} className="flex gap-2 items-center">
-                -  {item.name}
+                -  {item.children ? item.name : <Link href={`/dashboard?${item.name}`}><a>{item.name}</a></Link>}
                 {item.children && (
                     subMenuOpen ? <AiFillCaretDown /> : <AiFillCaretRight />
                 )}
