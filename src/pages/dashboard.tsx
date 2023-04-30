@@ -25,13 +25,13 @@ type ButtonTypes = {
 }
 
 const Button: React.FC<ButtonTypes> = ({ item }) => {
-    const [subMenus, setSubMenus] = useState([]);
+    const [subMenus, setSubMenus] = useState<any>('');
     return (
         <>
-            <button className="block" onClick={() => setSubMenus(item?.sub)}>
+            <button className="block" onClick={() => setSubMenus(item?.name)}>
                 {item.name}
             </button>
-            {subMenus.map((item, index) => (
+            {menus[`${subMenus}`].sub.map((item: any, index: any) => (
                 <LinkButton item={item} key={index} />
             ))}
         </>
@@ -43,5 +43,5 @@ type LinkTypes = {
 }
 const LinkButton: React.FC<LinkTypes> = ({ item }) => {
     console.log(item);
-    return <Link href=""></Link>
+    return <Link href="">{item.name}</Link>
 }
