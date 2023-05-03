@@ -1,17 +1,22 @@
 import BlogCard from "@/@core/components/blogCard";
 import { NextPage, GetStaticProps } from "next";
 
-interface Props { };
+interface Props {
+    meta: string;
+    title: string;
+    slug: string;
+};
 
 export const getStaticProps: GetStaticProps = async () => {
-    const res = fetch('/api/posts').then(data => data.json());
+    const res = await fetch('http://localhost:3000/api/posts');
+    const data = await res.json();
     return {
-        props: {}
+        props: { posts: data.posts }
     }
 }
 
-
-const Blogs: NextPage<Props> = () => {
+const Blogs: NextPage<Props> = ({ posts }) => {
+    console.log(posts);
     return (
         <div>
             {
