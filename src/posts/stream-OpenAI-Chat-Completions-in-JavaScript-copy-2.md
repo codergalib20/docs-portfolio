@@ -1,5 +1,10 @@
-# Say bye bye to bad javascript practices
+---
+  title: This is title
+  slug : Say bye bye to bad javascript practices
+  meta : When we take our first steps into the wonderful world of programming, we get to see for ourselves what it does for millions of people. It’s thanks to programming that the lives
+---
 
+# Say bye bye to bad javascript practices
 
 APRIL 24, 2023 | WRITTEN BY VISHWAS GOPINATH
 
@@ -10,18 +15,13 @@ APRIL 24, 2023 | WRITTEN BY VISHWAS GOPINATH
 
 When we take our first steps into the wonderful world of programming, we get to see for ourselves what it does for millions of people. It’s thanks to programming that the lives of so many are made easier, just by pressing a few keys on their devices (This is magic).
 
-
 <br/>
 <br/>
 Programming is another kind of superpower, but as Uncle Ben said to his nephew, Peter Parker, “With great power comes great responsibility.” In the world of programming, our greatest responsibility is to ensure that the code we write is both easily testable and will remain maintainable over time.
 
-
-
 <br/>
 <br/>
 There are some small practices in programming that can have a continuously negative impact on the code we write and the product we create as the end result. I’ve experienced these issues firsthand. It’s important to share what they are and why you should avoid them at all costs.
-
-
 
 <br/>
 <br/>
@@ -34,9 +34,7 @@ There are some small practices in programming that can have a continuously negat
   
   ● It does not create global objects.
 
-  ● It flags errors if you redeclare them.
-
-
+● It flags errors if you redeclare them.
 
 ```
 <!DOCTYPE html>
