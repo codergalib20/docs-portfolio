@@ -1,12 +1,10 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import path from "path";
+import matter from "gray-matter";
 
 const handler: NextApiHandler = (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
-
-  console.log(__dirname);
-  console.log(fs);
 
   switch (method) {
     case "GET": {
@@ -22,11 +20,12 @@ const handler: NextApiHandler = (req: NextApiRequest, res: NextApiResponse) => {
 const readPostInfo = () => {
   const dirPathToRead = path.join(process.cwd(), "src/posts");
   const dirs = fs.readdirSync(dirPathToRead);
-  dirs.map((filename) => {
+  const data = dirs.map((filename) => {
     const filePathToRead = path.join(process.cwd(), "src/posts/" + filename);
-    const fileContent = fs.readFileSync(filePathToRead, {encoding: 'utf-8'});
-    console.log(fileContent);
+    const fileContent = fs.readFileSync(filePathToRead, { encoding: "utf-8" });
+    return matter(fileContent).data;
   });
+  return data;
 };
 
 export default handler;
