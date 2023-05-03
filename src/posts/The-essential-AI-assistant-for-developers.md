@@ -1,3 +1,9 @@
+---
+title: The essential AI assistant for developers
+slug: The-essential-AI-assistant-for-developers
+meta: The essential AI assistant for developersThe essential AI assistant for developersThe essential AI assistant for developersThe essential AI assistant for developersThe essential AI assistant for developers
+---
+
 # Stream OpenAI Chat Completions in JavaScript
 
 APRIL 24, 2023 | WRITTEN BY VISHWAS GOPINATH

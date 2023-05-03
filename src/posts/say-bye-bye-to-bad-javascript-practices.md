@@ -1,6 +1,6 @@
 ---
-  title: This is title
-  slug : Say bye bye to bad javascript practices
+  title: Say bye bye to bad javascript practices
+  slug : say-bye-bye-to-bad-javascript-practices
   meta : When we take our first steps into the wonderful world of programming, we get to see for ourselves what it does for millions of people. It’s thanks to programming that the lives
 ---
 

@@ -1,4 +1,12 @@
-# Stream OpenAI Chat Completions in JavaScript
+---
+  title: This is titleOpenAI Chat Completions in JavaScript
+  slug : OpenAI-Chat-Completions-in-JavaScript-copy
+  meta : AI-powered apps are a popular trend in the tech community, with many amazing AI-powered apps already out there. If you're interested in building your own AI app, leveraging the power of the OpenAI API is a great place to start.
+---
+
+
+
+# OpenAI Chat Completions in JavaScript
 
 APRIL 24, 2023 | WRITTEN BY VISHWAS GOPINATH
 
