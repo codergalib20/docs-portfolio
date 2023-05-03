@@ -1,11 +1,11 @@
 import {NextPage} from "next";
 
-interface Props{}
+interface Props {};
 
 const Blogs : NextPage<Props> = () => {
     return (
          <div>
-             
+             Blogs
          </div>
     )
 };
