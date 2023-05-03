@@ -10,3 +10,5 @@ const handler: NextApiHandler = (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(404).json({ message: "this is an error message" });
   }
 };
+
+export default handler;
