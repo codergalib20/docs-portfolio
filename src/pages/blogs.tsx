@@ -1,13 +1,13 @@
-import { FC } from "react";
+import { NextPage } from "next";
 
 interface Props { };
 
-const Blog: FC<Props> = () => {
+const Blogs: NextPage<Props> = () => {
     return (
         <div>
-            Blog
+            blogs
         </div>
     )
 };
 
-export default Blog
+export default Blogs
