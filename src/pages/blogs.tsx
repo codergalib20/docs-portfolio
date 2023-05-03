@@ -1,19 +1,17 @@
 import BlogCard from "@/@core/components/blogCard";
-import { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { NextPage, GetStaticProps } from "next";
 
 interface Props { };
 
-const Blogs: NextPage<Props> = () => {
-    const [posts, setPosts] = useState<{ title: string; slug: string; meta: string; }[]>();
-
-    const fetchPosts = async () => {
-        const data = await fetch('/api/posts').then(data => data.json());
-        setPosts(data.posts);
+export const getStaticProps: GetStaticProps = async () => {
+    const res = fetch('/api/posts').then(data => data.json());
+    return {
+        props: {}
     }
-    useEffect(() => {
-        fetchPosts();
-    }, [])
+}
+
+
+const Blogs: NextPage<Props> = () => {
     return (
         <div>
             {
