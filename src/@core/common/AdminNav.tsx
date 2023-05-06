@@ -58,7 +58,7 @@ const AdminNav: FC<Props> = ({ navItems }): JSX.Element => {
     >
       <div>
         {/* logo */}
-        <Link href="/admin">
+        <Link legacyBehavior href="/admin">
           <a className="flex items-center space-x-2 p-3 mb-10">
             <Logo className="fill-highlight-light dark:fill-highlight-dark w-5 h-5" />
             {visible && (
@@ -73,7 +73,7 @@ const AdminNav: FC<Props> = ({ navItems }): JSX.Element => {
         <div className="space-y-6">
           {navItems.map((item) => {
             return (
-              <Link key={item.href} href={item.href}>
+              <Link legacyBehavior key={item.href} href={item.href}>
                 <a className="flex items-center text-highlight-light dark:text-highlight-dark text-xl p-3 hover:scale-[0.98] transition">
                   <item.icon size={24} />
                   {visible && (

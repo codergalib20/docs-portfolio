@@ -18,7 +18,7 @@ import {
 
 import Button from "./Button";
 import { getFocusedEditor } from "../EditorUtils";
-import DropdownOptions from "../../../common/DropdownOptions";
+import DropdownOptions from "@/@core/common/DropdownOptions";
 import InsertLink from "../Link/InsertLink";
 import { linkOption } from "../Link/LinkForm";
 import EmbedYoutube from "./EmbedYoutube";
