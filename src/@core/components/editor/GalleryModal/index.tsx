@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { ChangeEventHandler, FC, useCallback, useState } from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
-import ActionButton from "@/@core/common/ActionButton";
-import ModalContainer, { ModalProps } from "@/@core/common/ModalContainer";
+import ActionButton from "../../../common/ActionButton";
+import ModalContainer, { ModalProps } from "../../../common/ModalContainer";
 import Gallery from "./Gallery";
 
 export interface ImageSelectionResult {
@@ -15,7 +15,6 @@ interface Props extends ModalProps {
   uploading?: boolean;
   onFileSelect(image: File): void;
   onSelect(result: ImageSelectionResult): void;
-  visible: any;
 }
 
 const GalleryModal: FC<Props> = ({
@@ -96,7 +95,8 @@ const GalleryModal: FC<Props> = ({
                     <Image
                       src={selectedImage}
                       layout="fill"
-                      objectFit="contain" alt={""} />
+                      objectFit="contain"
+                    />
                   </div>
                 </>
               ) : null}
