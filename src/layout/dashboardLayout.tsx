@@ -4,12 +4,12 @@ interface Props {
     children: React.ReactNode;
 };
 
-const dashboardLayout: FC<Props> = () => {
+const DashboardLayout: FC<Props> = ({ children }) => {
     return (
-        <div>
-            dashboardLayout
+        <div className="p-4 overflow-y-scroll h-full styled-scrollbars">
+            {children}
         </div>
     )
 };
 
-export default dashboardLayout
+export default DashboardLayout

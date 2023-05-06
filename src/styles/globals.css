@@ -27,3 +27,29 @@ body {
 code {
   font-family: "Quicksand", sans-serif;
 }
+
+/* Scrollbar  Default*/
+::-webkit-scrollbar {
+  width: 0px; /* Mostly for vertical scrollbars */
+  height: 0px; /* Mostly for horizontal scrollbars */
+  border-radius: 0px;
+}
+
+
+
+/* Scrollbar */
+.styled-scrollbars {
+  /* Foreground, Background */
+  scrollbar-color: #5F264A;
+}
+.styled-scrollbars::-webkit-scrollbar {
+  width: 7px; /* Mostly for vertical scrollbars */
+  height: 7px; /* Mostly for horizontal scrollbars */
+  border-radius: 50px;
+}
+.styled-scrollbars::-webkit-scrollbar-thumb { /* Foreground */
+  background: #212A3E;
+}
+.styled-scrollbars::-webkit-scrollbar-track { /* Background */
+  background: #5F264A;
+}

@@ -1,4 +1,5 @@
 import menus from "@/fakeData/menus";
+import DashboardContent from "@/layout/dashboardContent";
 import slug from "@/utils/slug";
 import Link from 'next/link';
 import { useState } from "react";
@@ -19,7 +20,10 @@ export default function Dashboard() {
                 <div className="w-[260px] bg-[#9257fd] h-full p-4 ">
                     <SidebarMenu items={menuItems} />
                 </div>
-                <div></div>
+                {/* Dashboard Content */}
+                <div className="w-full">
+                    <DashboardContent />
+                </div>
             </div>
         </div>
     )
