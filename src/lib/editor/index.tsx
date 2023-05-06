@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from "@tiptap/starter-kit";
-import Tollbar from "./Tollbar.index";
+import Tollbar from "./Tollbar";
 
 interface Props { };
 

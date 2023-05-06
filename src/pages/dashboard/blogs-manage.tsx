@@ -4,7 +4,7 @@ interface Props { };
 
 const BlogsManage: NextPage<Props> = () => {
     return (
-        <div>
+        <div className="px-8">
             <Editor />
         </div>
     )
