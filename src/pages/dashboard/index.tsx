@@ -63,7 +63,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
                 {/*If the menu item has children, render a button with a folder icon and the item name*/}
                 {item.children ?
                     <button className="flex items-center gap-3"> <BsFillFolderSymlinkFill /> {item.name}</button> :
-                    <Link legacyBehavior href={`/dashboard?${slug(item.link as string)}`}>
+                    <Link legacyBehavior href={`/dashboard/${slug(item.link as string)}`}>
                         <a className="flex gap-3 items-center">
                             <BiLinkAlt /> {item.name}</a>
                     </Link>}
@@ -127,42 +127,10 @@ const menuItems: Array<MenuItemProps['item']> = [
         children: [
             {
                 id: 1,
-                name: 'New Blog',
-                children: [
-                    {
-                        id: 1,
-                        name: 'Publishd',
-                        link: 'blogs/publish'
-                    },
-                    {
-                        id: 2,
-                        name: 'Private',
-                        link: 'blogs/private'
-                    }
-                ],
-            },
-            {
-                id: 2,
-                name: 'Blogs',
-                children: [
-                    {
-                        id: 1,
-                        name: 'Edit',
-                        link: 'blogs/edit'
-                    },
-                    {
-                        id: 2,
-                        name: 'Delete',
-                        link: 'blogs/delete'
-                    },
-                    {
-                        id: 3,
-                        name: 'SEO',
-                        link: 'blogs/seo'
-                    }
-                ]
-            },
-        ],
+                name: 'Manage',
+                link: 'blogs/manage',
+            }
+        ]
     },
     {
         id: 3,
