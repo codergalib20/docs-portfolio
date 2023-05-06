@@ -38,6 +38,7 @@ interface MenuItemProps {
         id: number;
         name: string;
         children?: Array<MenuItemProps['item']>;
+        link?: string;
         // Optional children array of MenuItemProps objects
     };
 }
@@ -62,8 +63,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
                 {/*If the menu item has children, render a button with a folder icon and the item name*/}
                 {item.children ?
                     <button className="flex items-center gap-3"> <BsFillFolderSymlinkFill /> {item.name}</button> :
-                    <Link legacyBehavior href={`/dashboard?${slug(item.name)}`}><a className="flex gap-3 items-center">
-                        <BiLinkAlt /> {item.name}</a>
+                    <Link legacyBehavior href={`/dashboard?${slug(item.link as string)}`}>
+                        <a className="flex gap-3 items-center">
+                            <BiLinkAlt /> {item.name}</a>
                     </Link>}
                 {item.children && (
                     subMenuOpen ? <AiFillCaretDown /> : <AiFillCaretRight />
@@ -113,36 +115,10 @@ const menuItems: Array<MenuItemProps['item']> = [
         children: [
             {
                 id: 1,
-                name: 'New Doc',
-                children: [
-                    {
-                        id: 1,
-                        name: 'Publishd',
-                    },
-                    {
-                        id: 2,
-                        name: 'Private'
-                    }
-                ],
+                name: 'Docs',
+                link: 'docs/manage'
             },
-            {
-                id: 2,
-                name: 'Doc Manage',
-                children: [
-                    {
-                        id: 1,
-                        name: 'Edit',
-                    },
-                    {
-                        id: 2,
-                        name: 'Delete'
-                    },
-                    {
-                        id: 3,
-                        name: 'SEO'
-                    }
-                ]
-            },
+
         ],
     },
     {
@@ -156,10 +132,12 @@ const menuItems: Array<MenuItemProps['item']> = [
                     {
                         id: 1,
                         name: 'Publishd',
+                        link: 'blogs/publish'
                     },
                     {
                         id: 2,
-                        name: 'Private'
+                        name: 'Private',
+                        link: 'blogs/private'
                     }
                 ],
             },
@@ -170,14 +148,17 @@ const menuItems: Array<MenuItemProps['item']> = [
                     {
                         id: 1,
                         name: 'Edit',
+                        link: 'blogs/edit'
                     },
                     {
                         id: 2,
-                        name: 'Delete'
+                        name: 'Delete',
+                        link: 'blogs/delete'
                     },
                     {
                         id: 3,
-                        name: 'SEO'
+                        name: 'SEO',
+                        link: 'blogs/seo'
                     }
                 ]
             },
@@ -186,13 +167,16 @@ const menuItems: Array<MenuItemProps['item']> = [
     {
         id: 3,
         name: 'Subscribers',
+        link: 'subscribers'
     },
     {
         id: 4,
-        name: 'Mail'
+        name: 'Mail',
+        link: 'mail'
     },
     {
         id: 5,
-        name: 'Conversation'
+        name: 'Conversation',
+        link: 'conversation'
     }
 ];
