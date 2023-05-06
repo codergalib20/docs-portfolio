@@ -12,8 +12,9 @@ import EditLink from "./Link/EditLink";
 import GalleryModal, { ImageSelectionResult } from "./GalleryModal";
 import axios from "axios";
 import SEOForm, { SeoResult } from "./SeoForm";
-import ActionButton from "../common/ActionButton";
+// import ActionButton from "@/common/ActionButton";
 import ThumbnailSelector from "./ThumbnailSelector";
+import ActionButton from "@/@core/common/ActionButton";
 
 export interface FinalPost extends SeoResult {
   title: string;
