@@ -13,7 +13,7 @@ const Dashboard: NextPage<Props> = () => {
     
     return (
         <div className="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500 w-full h-screen flex gap-4">
-            <div className="w-full max-w-[250px] h-full relative">
+            <div className="w-full max-w-[280px] h-full relative  overflow-y-scroll">
                 <Sidebar />
             </div>
             <div className="w-full h-full overflow-y-scroll p-4">
