@@ -13,10 +13,10 @@ const Dashboard: NextPage<Props> = () => {
     
     return (
         <div className="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500 w-full h-screen flex gap-4">
-            <div className="w-full max-w-[250px] h-full overflow-y-scroll relative">
+            <div className="w-full max-w-[250px] h-full relative">
                 <Sidebar />
             </div>
-            <div className="w-full h-full overflow-y-scroll">
+            <div className="w-full h-full overflow-y-scroll p-4">
                 {!query.tab && <DefaultPage />}
                 {query.tab === 'blogs' && <BlogsDashboard />}
                 {query.tab === 'documents' && <DocumentDashboard />}

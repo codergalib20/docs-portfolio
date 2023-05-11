@@ -13,7 +13,7 @@ const Sidebar: FC<Props> = () => {
     return (
         <motion.aside initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }} className="ease-nav-brand z-990 inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
+            exit={{ opacity: 0 }} className="ease-nav-brand z-990 inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-red-500 p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 h-full overflow-y-scroll bg-transparent">
             <div className="h-19.5">
                 <i className="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
                 <a className="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="javascript:;" target="_blank">
@@ -76,7 +76,7 @@ const Sidebar: FC<Props> = () => {
                     </li>
 
                     <li className="mt-3 w-full">
-                        <Link href={`${mainUrl}?tab=documents`} className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+                        <Link href={`${mainUrl}?tab=documents`} className={`${query.tab === 'documents' && "bg-white"} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`}>
                             <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                                 <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" >
                                     <title>credit-card</title>
