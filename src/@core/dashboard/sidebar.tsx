@@ -1,9 +1,11 @@
-import Image from "next/image"; 
+import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 
 interface Props { };
 
 const Sidebar: FC<Props> = () => {
+    const mainUrl = '/admin/dashboard'
     return (
         <aside className="ease-nav-brand z-990 inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
             <div className="h-19.5">
@@ -45,8 +47,9 @@ const Sidebar: FC<Props> = () => {
                         </a>
                     </li>
 
+                    {/* Buttons============================= */}
                     <li className="mt-3 w-full">
-                        <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="./pages/tables.html">
+                        <Link href={`${mainUrl}?tab=blogs`} className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
                             <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                                 <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <title>office</title>
@@ -62,8 +65,8 @@ const Sidebar: FC<Props> = () => {
                                     </g>
                                 </svg>
                             </div>
-                            <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Tables</span>
-                        </a>
+                            <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Blogs</span>
+                        </Link>
                     </li>
 
                     <li className="mt-3 w-full">
