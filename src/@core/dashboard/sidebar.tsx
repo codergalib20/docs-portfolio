@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { useRouter } from "next/router";
+import { motion } from 'framer-motion';
+
 interface Props { };
 
 const Sidebar: FC<Props> = () => {
@@ -9,7 +11,9 @@ const Sidebar: FC<Props> = () => {
     const { query } = useRouter() || {}
 
     return (
-        <aside className="ease-nav-brand z-990 inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
+        <motion.aside initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }} className="ease-nav-brand z-990 inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
             <div className="h-19.5">
                 <i className="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
                 <a className="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="javascript:;" target="_blank">
@@ -23,7 +27,7 @@ const Sidebar: FC<Props> = () => {
             <div className="py-4 overflow-y-scroll items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
                 <ul className="flex flex-col pl-0 mb-0">
                     <li className="mt-3 w-full">
-                        <Link href={mainUrl} className={`py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg ${query ? "bg-white" : ''} px-4 font-semibold text-slate-700 transition-colors`}>
+                        <Link href={mainUrl} className={`py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg ${!query.tab ? "bg-white" : ''} px-4 font-semibold text-slate-700 transition-colors`}>
                             <div className="bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                                 <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <title>shop</title>
@@ -51,7 +55,7 @@ const Sidebar: FC<Props> = () => {
 
                     {/* Buttons============================= */}
                     <li className="mt-3 w-full">
-                        <Link href={`${mainUrl}?tab=blogs`} className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+                        <Link href={`${mainUrl}?tab=blogs`} className={`${query.tab === 'blogs' && "bg-white"} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors`}>
                             <div className={`shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5 ${query.tab === 'blogs' && "bg-white"}`}>
                                 <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <title>office</title>
@@ -186,7 +190,7 @@ const Sidebar: FC<Props> = () => {
                 {/* <!-- pro btn  --> */}
                 <a className="inline-block w-full px-6 py-3 my-4 text-xs font-bold text-center text-white uppercase align-middle transition-all ease-in border-0 rounded-lg select-none shadow-soft-md bg-150 bg-x-25 leading-pro bg-gradient-to-tl from-purple-700 to-pink-500 hover:shadow-soft-2xl hover:scale-102" target="_blank" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro-tailwind?ref=sidebarfree">Upgrade to pro</a>
             </div>
-        </aside>
+        </motion.aside>
     )
 };
 

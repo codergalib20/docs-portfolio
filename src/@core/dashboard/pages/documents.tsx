@@ -1,12 +1,15 @@
 import { FC } from "react";
+import {motion} from 'framer-motion';
 
 interface Props { };
 
 const DocumentDashboard: FC<Props> = () => {
     return (
-        <div>
+        <motion.div initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}>
             DocumentDashboard
-        </div>
+        </motion.div>
     )
 };
 
